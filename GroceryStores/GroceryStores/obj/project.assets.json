@@ -12083,11 +12083,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ektac\\source\\repos\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
+      "projectUniqueName": "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
       "projectName": "GroceryStores",
-      "projectPath": "C:\\Users\\ektac\\source\\repos\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
+      "projectPath": "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
       "packagesPath": "C:\\Users\\ektac\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ektac\\source\\repos\\GroceryStores\\GroceryStores\\obj\\",
+      "outputPath": "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
