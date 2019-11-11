@@ -1,10 +1,32 @@
-﻿@page
+﻿
+@page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    GroceryStores.GroceryStore[] allGroceryStores = (GroceryStores.GroceryStore[])ViewData["allGroceryStores"];
+    BusinessOwnerDetails.BusinessOwner[] allOwners = (BusinessOwnerDetails.BusinessOwner[])ViewData["allBusinessOwners"];
+    List<BusinessOwnerDetails.BusinessOwner> groceryStoresOwners = (List<BusinessOwnerDetails.BusinessOwner>)ViewData["groceryStoresOwners"];
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <table>
+        <tr>
+            <th>Store Name</th>
+            <th>Legal Name</th>
+            <th>Owner Name</th>
+        </tr>
+        @{
+            foreach (BusinessOwnerDetails.BusinessOwner businessOwner in groceryStoresOwners)
+            {
+            <tr>
+                <td></td>
+               
+            </tr>
+            }
+        }
+    </table>
 </div>
+
+
