@@ -13,17 +13,20 @@
 
     <table>
         <tr>
+
+            <th>Account Number</th>
+            <th>License Id</th>
             <th>Store Name</th>
-            <th>Legal Name</th>
-            <th>Owner Name</th>
         </tr>
         @{
-            foreach (BusinessOwnerDetails.BusinessOwner businessOwner in groceryStoresOwners)
+            foreach (GroceryStores.GroceryStore groceryStoreOwner in allGroceryStores)
             {
-            <tr>
-                <td></td>
-               
-            </tr>
+                <tr>
+                    <td>@groceryStoreOwner.AccountNumber</td>
+                    <td>@groceryStoreOwner.LicenseId</td>
+                    <td>@groceryStoreOwner.StoreName</td>
+
+                </tr>
             }
         }
     </table>

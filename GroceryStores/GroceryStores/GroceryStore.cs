@@ -16,7 +16,7 @@ namespace GroceryStores
 
             [JsonProperty("license_id")]
             [JsonConverter(typeof(ParseStringConverter))]
-            public string LicenseId { get; set; }
+            public long LicenseId { get; set; }
 
             [JsonProperty("account_number")]
             [JsonConverter(typeof(ParseStringConverter))]

@@ -22,28 +22,27 @@ namespace GroceryStores.Pages
         {
             using (WebClient webClient = new WebClient())
             {
-                string BusinessOwnerJsonString = webClient.DownloadString("https://data.cityofchicago.org/resource/ezma-pppn.json");
+                string businessOwnerEndPoint = "https://data.cityofchicago.org/resource/ezma-pppn.json";
+                string BusinessOwnerJsonString = webClient.DownloadString(businessOwnerEndPoint);
                 BusinessOwner[] allBusinessOwners = BusinessOwner.FromJson(BusinessOwnerJsonString);
                 ViewData["allBusinessOwners"] = allBusinessOwners;
 
-                string GroceryStoreJsonString = webClient.DownloadString("https://data.cityofchicago.org/resource/53t8-wyrc.json");
+                string groceryStoreEndPoint = "https://data.cityofchicago.org/resource/53t8-wyrc.json";
+                string GroceryStoreJsonString = webClient.DownloadString(groceryStoreEndPoint);
                 GroceryStore[] allGroceryStores = GroceryStore.FromJson(GroceryStoreJsonString);
                 ViewData["allGroceryStores"] = allGroceryStores;
 
-                IDictionary<string, GroceryStore> groceryStores = new Dictionary<string, GroceryStore>();
+                //IDictionary<string, GroceryStore> groceryStores = new Dictionary<string, GroceryStore>();
 
                 List<BusinessOwner> groceryStoresOwners = new List<BusinessOwner>();
 
-                foreach (GroceryStore groceryStore in allGroceryStores)
-                {
-                    groceryStores.Add(groceryStore.StoreName, groceryStore);
-                }
+            
 
                 foreach (BusinessOwner businessOwner in allBusinessOwners)
                 {
-                    foreach (var groceryStore in groceryStores)
+                    foreach (var groceryStore in allGroceryStores)
                     {
-                        if (groceryStore.Value.LicenseId == businessOwner.LicenseId)
+                        if (groceryStore.AccountNumber == businessOwner.AccountNumber)
                         {
                             groceryStoresOwners.Add(businessOwner);
                         }
