@@ -42,6 +42,9 @@ namespace BusinessOwnerDetails
 
         [JsonProperty("expiration_date")]
         public DateTimeOffset ExpirationDate { get; set; }
+        [JsonProperty("zip_code")]
+        [JsonConverter(typeof(ParseStringConverter))]
+        public long ZipCode { get; set; }
     }
 
     public partial class BusinessOwner

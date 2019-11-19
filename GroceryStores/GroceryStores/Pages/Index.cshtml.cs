@@ -22,7 +22,7 @@ namespace GroceryStores.Pages
         {
             using (WebClient webClient = new WebClient())
             {
-                string businessOwnerEndPoint = "https://data.cityofchicago.org/resource/ezma-pppn.json";
+                string businessOwnerEndPoint = "https://data.cityofchicago.org/resource/r5kz-chrr.json";
                 string BusinessOwnerJsonString = webClient.DownloadString(businessOwnerEndPoint);
                 BusinessOwner[] allBusinessOwners = BusinessOwner.FromJson(BusinessOwnerJsonString);
                 ViewData["allBusinessOwners"] = allBusinessOwners;
@@ -32,23 +32,55 @@ namespace GroceryStores.Pages
                 GroceryStore[] allGroceryStores = GroceryStore.FromJson(GroceryStoreJsonString);
                 ViewData["allGroceryStores"] = allGroceryStores;
 
-                //IDictionary<string, GroceryStore> groceryStores = new Dictionary<string, GroceryStore>();
+                IDictionary<long, GroceryStore> groceryStoresMap = new Dictionary<long, GroceryStore>();
+                List<BusinessOwner> businessOwnerList = new List<BusinessOwner>();
 
-                List<BusinessOwner> groceryStoresOwners = new List<BusinessOwner>();
-
-            
-
-                foreach (BusinessOwner businessOwner in allBusinessOwners)
+                foreach (GroceryStore grocery in allGroceryStores)
                 {
-                    foreach (var groceryStore in allGroceryStores)
+                    if (!groceryStoresMap.ContainsKey(grocery.ZipCode))
                     {
-                        if (groceryStore.AccountNumber == businessOwner.AccountNumber)
-                        {
-                            groceryStoresOwners.Add(businessOwner);
-                        }
+                        groceryStoresMap.Add(grocery.ZipCode, grocery);
+                    }                    
+                }
+
+
+                foreach (BusinessOwner businessRec in allBusinessOwners)
+                {
+                    if (groceryStoresMap.ContainsKey(businessRec.ZipCode))
+                    {
+                        businessOwnerList.Add(businessRec);
                     }
                 }
-                ViewData["groceryStoresOwners"] = groceryStoresOwners;
+
+                /*IDictionary<long, BusinessOwner> businessOwnersMap = new Dictionary<long, BusinessOwner>();
+
+                List<GroceryStore> groceryStoresOwners = new List<GroceryStore>();
+
+                foreach(BusinessOwner businessOwner in allBusinessOwners){
+                    businessOwnersMap.Add(businessOwner.LicenseId, businessOwner);
+                }
+
+
+                foreach (GroceryStore groceryStore in allGroceryStores)
+                {
+                    if (businessOwnersMap.ContainsKey(groceryStore.LicenseId))
+                    {
+                        groceryStoresOwners.Add(groceryStore);
+                    }
+                }*/
+
+
+                //foreach (BusinessOwner businessOwner in allBusinessOwners)
+                //{
+                //    foreach (var groceryStore in allGroceryStores)
+                //    {
+                //        if (groceryStore.LicenseId == businessOwner.LicenseId)
+                //        {
+                //            groceryStoresOwners.AddRange(groceryStore.LicenseId, groceryStore);
+                //        }
+                //    }
+                //}
+                ViewData["businessOwners"] = businessOwnerList;
             }
         }
     }

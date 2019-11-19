@@ -28,3 +28,4 @@ C:\Users\ektac\Documents\GitHub\XMLProject\GroceryStores\GroceryStores\obj\Debug
 C:\Users\ektac\Documents\GitHub\XMLProject\GroceryStores\GroceryStores\obj\Debug\netcoreapp2.2\GroceryStores.dll
 C:\Users\ektac\Documents\GitHub\XMLProject\GroceryStores\GroceryStores\obj\Debug\netcoreapp2.2\GroceryStores.pdb
 C:\Users\ektac\Documents\GitHub\XMLProject\GroceryStores\GroceryStores\obj\Debug\netcoreapp2.2\GroceryStores.csproj.CopyComplete
+C:\Users\ektac\Documents\GitHub\XMLProject\GroceryStores\GroceryStores\obj\Debug\netcoreapp2.2\Razor\Pages\SearchGroceryStores.g.cshtml.cs

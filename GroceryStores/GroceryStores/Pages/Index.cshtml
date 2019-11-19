@@ -3,9 +3,8 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    GroceryStores.GroceryStore[] allGroceryStores = (GroceryStores.GroceryStore[])ViewData["allGroceryStores"];
-    BusinessOwnerDetails.BusinessOwner[] allOwners = (BusinessOwnerDetails.BusinessOwner[])ViewData["allBusinessOwners"];
-    List<BusinessOwnerDetails.BusinessOwner> groceryStoresOwners = (List<BusinessOwnerDetails.BusinessOwner>)ViewData["groceryStoresOwners"];
+    List<BusinessOwnerDetails.BusinessOwner> businessOwners = (List<BusinessOwnerDetails.BusinessOwner>) ViewData["businessOwners"];
+    
 }
 
 <div class="text-center">
@@ -14,17 +13,23 @@
     <table>
         <tr>
 
-            <th>Account Number</th>
             <th>License Id</th>
-            <th>Store Name</th>
+            <th>License Description</th>
+            <th>Doing Business As Name</th>
+            <th>Legal Name</th>
+            <th>License Status</th>
+            <th>Zipcode</th>
         </tr>
         @{
-            foreach (GroceryStores.GroceryStore groceryStoreOwner in allGroceryStores)
+            foreach (BusinessOwnerDetails.BusinessOwner buss in businessOwners)
             {
                 <tr>
-                    <td>@groceryStoreOwner.AccountNumber</td>
-                    <td>@groceryStoreOwner.LicenseId</td>
-                    <td>@groceryStoreOwner.StoreName</td>
+                    <td>@buss.LicenseId</td>
+                    <td>@buss.LicenseDescription</td>
+                    <td>@buss.DoingBusinessAsName</td>
+                    <td>@buss.LegalName</td>
+                    <td>@buss.LicenseStatus</td>
+                    <td>@buss.ZipCode</td>
 
                 </tr>
             }
