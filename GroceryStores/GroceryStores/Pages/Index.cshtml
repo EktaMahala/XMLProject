@@ -3,16 +3,15 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    List<BusinessOwnerDetails.BusinessOwner> businessOwners = (List<BusinessOwnerDetails.BusinessOwner>) ViewData["businessOwners"];
-    
+    List<BusinessOwnerDetails.BusinessOwner> businessOwners = (List<BusinessOwnerDetails.BusinessOwner>)ViewData["businessOwners"];
+
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
 
-    <table>
-        <tr>
-
+    <table class="table table-bordered table-hover">
+        <tr class="thead-dark">
             <th>License Id</th>
             <th>License Description</th>
             <th>Doing Business As Name</th>
@@ -30,7 +29,6 @@
                     <td>@buss.LegalName</td>
                     <td>@buss.LicenseStatus</td>
                     <td>@buss.ZipCode</td>
-
                 </tr>
             }
         }

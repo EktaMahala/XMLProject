@@ -2,8 +2,7 @@
 @model GroceryStores.Pages.SearchGroceryStoresModel
 @{
     ViewData["Title"] = "Search Grocery Stores";
-    var businessOwners = (BusinessOwnerDetails.BusinessOwner[])ViewData["businessOwners"];
-    var groceryStores = (GroceryStore[])ViewData["groceryStores"];
+    ViewData["NoSearch"] = "Please provide Zipcode";
 }
 
 <h1>Search Grocery Stores</h1>
@@ -25,19 +24,18 @@
         <div class="row">
             <div class="col-md-12">
                 <nav>
-                    <div class="nav nav-tabs nav-fill"  role="tablist">
-                        <a class="nav-item nav-link active"  data-toggle="tab" href="#businessOwners" role="tab" aria-controls="nav-home" aria-selected="true">Business Owners</a>
+                    <div class="nav nav-tabs nav-fill" role="tablist">
+                        <a class="nav-item nav-link active" data-toggle="tab" href="#businessOwners" role="tab" aria-controls="nav-home" aria-selected="true">Business Owners</a>
                         <a class="nav-item nav-link" data-toggle="tab" href="#groceryOwners" role="tab" aria-controls="nav-profile" aria-selected="false">Grocery Owners</a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="businessOwners" role="tabpanel" >
+                    <div class="tab-pane fade show active" id="businessOwners" role="tabpanel">
                         <table class="table table-bordered table-striped table-hover">
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr>
                                     <th>License Id</th>
                                     <th>Legal Name</th>
-                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,7 +46,6 @@
                                         <tr>
                                             <td>@businessOwner.LicenseId</td>
                                             <td>@businessOwner.LegalName</td>
-                                            
                                         </tr>
                                     }
                                 }
