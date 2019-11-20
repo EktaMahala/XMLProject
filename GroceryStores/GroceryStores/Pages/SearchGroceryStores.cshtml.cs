@@ -22,22 +22,35 @@ namespace GroceryStores.Pages
 
         public void OnPost()
         {
-
-            using (var webClient = new WebClient())
+            //If no zipcode is provided
+            if (Search == 0)
             {
-                String businessOwnerjsonString = webClient.DownloadString("https://data.cityofchicago.org/resource/r5kz-chrr.json");
-                businessOwners = BusinessOwnerDetails.BusinessOwner.FromJson(businessOwnerjsonString);
-                
-                ViewData["businessOwners"] = businessOwners;
-
-                String firejsonString = webClient.DownloadString("https://data.cityofchicago.org/resource/53t8-wyrc.json");
-                groceryStores = GroceryStore.FromJson(firejsonString);
-                
-                ViewData["groceryStores"] = groceryStores;
+                string noSearch = "Please provide Zipcode";
             }
+            //Business Owners data from the API
+            String businessOwnerjsonString = GetData("https://data.cityofchicago.org/resource/r5kz-chrr.json");
+            businessOwners = BusinessOwnerDetails.BusinessOwner.FromJson(businessOwnerjsonString);
+            ViewData["businessOwners"] = businessOwners;
+
+            //Grocery stores data from te API
+            String firejsonString = GetData("https://data.cityofchicago.org/resource/53t8-wyrc.json");
+            groceryStores = GroceryStore.FromJson(firejsonString);
+            ViewData["groceryStores"] = groceryStores;
+
+            //Filtering Business Owners and Grocery stores from the zip search
             businessOwners = businessOwners.Where(x => x.ZipCode == Search).ToArray();
             groceryStores = groceryStores.Where(x => x.ZipCode == Search).ToArray();
             SearchCompleted = true;
+        }
+
+        //This generic method is used to get the JsonString by calling an API
+        public string GetData(string url)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                string jsonString = webClient.DownloadString(url);
+                return jsonString;
+            }
         }
     }
 }

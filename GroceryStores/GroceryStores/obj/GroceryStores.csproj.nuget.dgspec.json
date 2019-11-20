@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj": {}
+    "C:\\Users\\medha\\Source\\Repos\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj": {
+    "C:\\Users\\medha\\Source\\Repos\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
+        "projectUniqueName": "C:\\Users\\medha\\Source\\Repos\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
         "projectName": "GroceryStores",
-        "projectPath": "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
-        "packagesPath": "C:\\Users\\ektac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ektac\\Documents\\GitHub\\XMLProject\\GroceryStores\\GroceryStores\\obj\\",
+        "projectPath": "C:\\Users\\medha\\Source\\Repos\\XMLProject\\GroceryStores\\GroceryStores\\GroceryStores.csproj",
+        "packagesPath": "C:\\Users\\medha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\medha\\Source\\Repos\\XMLProject\\GroceryStores\\GroceryStores\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ektac\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\medha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,10 +65,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
