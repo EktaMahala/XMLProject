@@ -12,6 +12,10 @@ namespace GroceryStores.Pages
 {
     public class IndexModel : PageModel
     {
+
+        [BindProperty]
+        public string LicenseID { get; set; }
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)

@@ -7,34 +7,52 @@
     
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <div class="text-center">
+        <h1 class="display-4">Welcome Page</h1>
 
-    <table>
-        <tr>
 
-            <th>License Id</th>
-            <th>License Description</th>
-            <th>Doing Business As Name</th>
-            <th>Legal Name</th>
-            <th>License Status</th>
-            <th>Zipcode</th>
-        </tr>
-        @{
-            foreach (BusinessOwnerDetails.BusinessOwner buss in businessOwners)
-            {
+        @*Form Request*@
+        <form method="get" class="text-center">
+            <div>
+                <label> Enter the License ID to search:  </label>
+                <input asp-for="LicenseID" />
+                <small id="Example" class="form-text text-muted"> Example : 1228662, 1228660 </small>
+            </div>
+            <div>
+                <button type="submit" value="Submit" class="btn-primary"> Submit </button>
+            </div>
+        </form>
+        <br />
+        <br/>
+
+        @* Made a table for proper organisation *@
+        <table class="table table-bordered table-hover">
+            <thead class="badge-dark text-center text-light">
                 <tr>
-                    <td>@buss.LicenseId</td>
-                    <td>@buss.LicenseDescription</td>
-                    <td>@buss.DoingBusinessAsName</td>
-                    <td>@buss.LegalName</td>
-                    <td>@buss.LicenseStatus</td>
-                    <td>@buss.ZipCode</td>
 
+                    <th>License Id</th>
+                    <th>License Description</th>
+                    <th>Doing Business As Name</th>
+                    <th>Legal Name</th>
+                    <th>License Status</th>
+                    <th>Zipcode</th>
                 </tr>
+            </thead>
+            @{
+                foreach (BusinessOwnerDetails.BusinessOwner buss in businessOwners)
+                {
+                    <tr>
+                        <td>@buss.LicenseId</td>
+                        <td>@buss.LicenseDescription</td>
+                        <td>@buss.DoingBusinessAsName</td>
+                        <td>@buss.LegalName</td>
+                        <td>@buss.LicenseStatus</td>
+                        <td>@buss.ZipCode</td>
+
+                    </tr>
+                }
             }
-        }
-    </table>
-</div>
+        </table>
+    </div>
 
 
