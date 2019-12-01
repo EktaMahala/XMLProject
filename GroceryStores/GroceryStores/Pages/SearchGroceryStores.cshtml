@@ -56,7 +56,7 @@
                                 {
                                     <tr class="danger">
                                         <td colspan="5" class="text-center">
-                                            No results found for term "@Model.Search"
+                                            <span class="font-weight-bolder text-danger">No results found for term "@Model.Search"</span>
                                         </td>
                                     </tr>
                                 }
@@ -67,11 +67,11 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
+                                    <th>Store Name</th>
                                     <th>Address</th>
                                     <th>Latitude</th>
                                     <th>Longitude</th>
-                                    <th>Neighbourhood</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,17 +79,19 @@
                                 {
                                     @foreach (var grocery in Model.groceryStores)
                                     {
-                                        <tr>
-                                            <td>@grocery.StoreName</td>
-                                            <td>@grocery.Location</td>
-                                        </tr>
+                                <tr>
+                                    <td>@grocery.StoreName</td>
+                                    <td>@grocery.Address</td>
+                                    <td>@grocery.Latitude</td>
+                                    <td>@grocery.Longitude</td>
+                                </tr>
                                     }
                                 }
                                 else
                                 {
                                     <tr class="danger">
                                         <td colspan="5" class="text-center">
-                                            No results found for term "@Model.Search"
+                                            <span class="font-weight-bolder text-danger">No results found for term "@Model.Search"</span>
                                         </td>
                                     </tr>
                                 }
