@@ -10,8 +10,8 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-border table-dark table-striped table-hover auto-index">
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.GroceryStoreSurvey[0].firstName)
@@ -31,33 +31,34 @@
             <th>
                 @Html.DisplayNameFor(model => model.GroceryStoreSurvey[0].stores)
             </th>
-            
+
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.GroceryStoreSurvey) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mobile)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.zip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.stores)
-            </td>
-            
-            
-        </tr>
-}
+        @foreach (var item in Model.GroceryStoreSurvey)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stores)
+                </td>
+
+
+            </tr>
+        }
     </tbody>
 </table>

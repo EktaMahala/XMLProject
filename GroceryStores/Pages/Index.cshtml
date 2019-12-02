@@ -6,3 +6,37 @@
    
 }
 
+
+<div class="text-center">
+    <h1 class="display-4" text>Grocery Stores List</h1>
+
+    <table class="table table-border table-dark table-striped table-hover auto-index">
+        <thead class="table-dark">
+            <tr>
+
+                <th>License Id</th>
+                <th>License Description</th>
+                <th>Business Activity</th>
+                <th>Legal Name</th>
+                <th>License Status</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (BusinessOwnerDetails.BusinessOwner buss in businessOwners)
+                {
+                    <tr>
+                        <td>@buss.LicenseId</td>
+                        <td>@buss.LicenseDescription</td>
+                        <td>@buss.BusinessActivity</td>
+                        <td>@buss.LegalName</td>
+                        <td>@buss.LicenseStatus</td>
+                        <td>@buss.ZipCode</td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
