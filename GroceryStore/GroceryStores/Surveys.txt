@@ -1,0 +1,3 @@
+﻿Ekta,Choudhary,5132224536,ekta@gmail.com,45220,Walmart
+Parth,Shrey,5132224536,shrey@gmail.com,45220,Tavern
+Bhawna,Saini,5132224536,bhawna@gmail.com,42550,Kroger
