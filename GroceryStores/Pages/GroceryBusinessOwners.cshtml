@@ -1,0 +1,45 @@
+﻿@page
+@model GroceryStores.Pages.GroceryBusinessOwnersModel
+@{
+    ViewData["Title"] = "GroceryBusinessOwners";
+    
+    List<BusinessOwnerDetails.BusinessOwner> businessOwners = (List<BusinessOwnerDetails.BusinessOwner>) ViewData["businessOwners"];
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Chicago Grocery Stores Business Owners</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+
+                <th>License Id</th>
+                <th>License Description</th>
+                <th>Business Activity</th>
+                <th>Legal Name</th>
+                <th>License Status</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (BusinessOwnerDetails.BusinessOwner buss in businessOwners)
+                {
+                    <tr>
+                        <td>@buss.LicenseId</td>
+                        <td>@buss.LicenseDescription</td>
+                        <td>@buss.BusinessActivity</td>
+                        <td>@buss.LegalName</td>
+                        <td>@buss.LicenseStatus</td>
+                        <td>@buss.ZipCode</td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
