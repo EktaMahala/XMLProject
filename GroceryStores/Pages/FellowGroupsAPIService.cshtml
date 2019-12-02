@@ -1,0 +1,33 @@
+﻿@page
+@model GroceryStores.Pages.FellowGroupsAPIServiceModel
+@{
+    ViewData["Title"] = "FellowGroupsAPIService";
+    var mobileFoodSchedules = (MobileFoodSchedules.MobileFoodSchedule[])ViewData["MobileFoodSchedules"];
+}
+ 
+<h1>Fellow Groups API Service</h1>
+<h2>Mobile Food Schedules</h2>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Vendor</th>
+            <th>Day of Week</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MobileFoodSchedules.MobileFoodSchedule schedule in mobileFoodSchedules)
+        {
+            <tr>
+                <td>@schedule.Applicant</td>
+                <td>@schedule.Dayofweekstr</td>
+                <td>@schedule.Starttime</td>
+                <td>@schedule.Endtime</td>
+                <td>@schedule.Location</td>
+            </tr>
+        }
+ 
+    </tbody>
+</table>
