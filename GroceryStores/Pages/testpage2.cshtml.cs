@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace GroceryStores.Pages
 {
-    public class GitTestPageModel : PageModel
+    public class testpage2Model : PageModel
     {
         public void OnGet()
         {

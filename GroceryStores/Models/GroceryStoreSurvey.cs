@@ -21,7 +21,7 @@ namespace GroceryStores.Models
         public string zip { get; set; }
         [Display(Name = "Most Preferred Grocery Stores to shop")]
         public string stores { get; set; }
-        public string test { get; set; }
+        
 
     }
 }
