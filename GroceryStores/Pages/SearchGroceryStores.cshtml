@@ -5,7 +5,29 @@
     var businessOwners = (BusinessOwnerDetails.BusinessOwner[])ViewData["businessOwners"];
     var groceryStores = (GroceryStore[])ViewData["groceryStores"];
 }
+    <head>
+        <script>
+        $(function () {
+            $("#Combined_Name").autocomplete({
+                source: "/AutoComplete",
+                minLength: 3
+            });
+        });
+        </script>
+        <style>
+            ul.ui-autocomplete {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                list-style-position: inside;
+                width: 50px;
+            }
 
+            li.ui-menu-item {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
 <h1>Search Grocery Stores</h1>
 
 <form action="" method="POST">

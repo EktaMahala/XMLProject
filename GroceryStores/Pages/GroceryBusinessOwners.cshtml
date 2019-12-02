@@ -1,16 +1,16 @@
-﻿
-@page
-@model IndexModel
+﻿@page
+@model GroceryStores.Pages.GroceryBusinessOwnersModel
 @{
-    ViewData["Title"] = "Home page";
-   
+    ViewData["Title"] = "GroceryBusinessOwners";
+    
+    List<BusinessOwnerDetails.BusinessOwner> businessOwners = (List<BusinessOwnerDetails.BusinessOwner>) ViewData["businessOwners"];
+    
 }
 
-
 <div class="text-center">
-    <h1 class="display-4" text>Grocery Stores List</h1>
+    <h1 class="display-4">Chicago Grocery Stores Business Owners</h1>
 
-    <table class="table table-border table-dark table-striped table-hover auto-index">
+    <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
 
@@ -40,3 +40,6 @@
         </tbody>
     </table>
 </div>
+
+
+

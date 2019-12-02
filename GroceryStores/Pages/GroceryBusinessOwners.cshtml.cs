@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,11 +17,11 @@ using Microsoft.Extensions.Logging;
  */
 namespace GroceryStores.Pages
 {
-    public class IndexModel : PageModel
+    public class GroceryBusinessOwnersModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<GroceryBusinessOwnersModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public GroceryBusinessOwnersModel(ILogger<GroceryBusinessOwnersModel> logger)
         {
             _logger = logger;
         }
@@ -46,7 +47,7 @@ namespace GroceryStores.Pages
                     if (!groceryStoresMap.ContainsKey(grocery.ZipCode))
                     {
                         groceryStoresMap.Add(grocery.ZipCode, grocery);
-                    }                    
+                    }
                 }
 
 
