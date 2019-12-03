@@ -1,0 +1,34 @@
+﻿body {
+    background-color: #4FFFE8;
+}
+
+.tile {
+    background-color: powderblue;
+    color: white;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 1px 1px 15px #E3E2E2 inset;
+}
+
+.mr {
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+.pd {
+    padding: 5px;
+}
+
+.mt {
+    margin-top: 10px;
+}
+
+.view {
+    background-image: url('../background.jfif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

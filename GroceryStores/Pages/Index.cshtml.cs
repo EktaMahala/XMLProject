@@ -20,46 +20,8 @@ namespace GroceryStores.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
         public void OnGet()
         {
-            using (WebClient webClient = new WebClient())
-            {
-                string businessOwnerEndPoint = "https://data.cityofchicago.org/resource/r5kz-chrr.json";
-                string BusinessOwnerJsonString = webClient.DownloadString(businessOwnerEndPoint);
-                BusinessOwner[] allBusinessOwners = BusinessOwner.FromJson(BusinessOwnerJsonString);
-                ViewData["allBusinessOwners"] = allBusinessOwners;
-
-                string groceryStoreEndPoint = "https://data.cityofchicago.org/resource/53t8-wyrc.json";
-                string GroceryStoreJsonString = webClient.DownloadString(groceryStoreEndPoint);
-                GroceryStore[] allGroceryStores = GroceryStore.FromJson(GroceryStoreJsonString);
-                ViewData["allGroceryStores"] = allGroceryStores;
-
-                IDictionary<long, GroceryStore> groceryStoresMap = new Dictionary<long, GroceryStore>();
-                List<BusinessOwner> businessOwnerList = new List<BusinessOwner>();
-
-                foreach (GroceryStore grocery in allGroceryStores)
-                {
-                    if (!groceryStoresMap.ContainsKey(grocery.ZipCode))
-                    {
-                        groceryStoresMap.Add(grocery.ZipCode, grocery);
-                    }                    
-                }
-
-
-                foreach (BusinessOwner businessRec in allBusinessOwners)
-                {
-                    if (groceryStoresMap.ContainsKey(businessRec.ZipCode))
-                    {
-                        businessOwnerList.Add(businessRec);
-                    }
-                }
-
-                ViewData["businessOwners"] = businessOwnerList;
-            }
         }
     }
 }

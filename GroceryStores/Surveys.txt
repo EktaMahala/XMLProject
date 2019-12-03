@@ -1,0 +1,4 @@
+﻿Raghuveer,K,,,,
+Ekta,Mahale,999999999,test@test.com,45220,Kroger
+Bhawna ,Saini,45654355647,bha@gmail.com,345643,Kroger
+shrey,parth,54687932345,parth@gmail.com,456743,Costco

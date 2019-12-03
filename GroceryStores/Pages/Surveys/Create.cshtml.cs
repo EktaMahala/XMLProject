@@ -6,16 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GroceryStores.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace GroceryStores.Pages.Surveys
 {
     public class CreateModel : PageModel
     {
-        private readonly GroceryStores.Models.GroceryStoresContext _context;
-
-        public CreateModel(GroceryStores.Models.GroceryStoresContext context)
+        private readonly IHostingEnvironment _environment;
+        public CreateModel(IHostingEnvironment environment)
         {
-            _context = context;
+            _environment = environment;
         }
 
         public IActionResult OnGet()
@@ -26,17 +27,21 @@ namespace GroceryStores.Pages.Surveys
         [BindProperty]
         public GroceryStoreSurvey GroceryStoreSurvey { get; set; }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.GroceryStoreSurvey.Add(GroceryStoreSurvey);
-            await _context.SaveChangesAsync();
+            string survey = GroceryStoreSurvey.firstName + "," + GroceryStoreSurvey.lastName + "," + GroceryStoreSurvey.mobile + "," + GroceryStoreSurvey.email + "," + GroceryStoreSurvey.zip + "," + GroceryStoreSurvey.stores;
+            string path = Path.Combine(_environment.ContentRootPath, "Surveys.txt");
+
+            System.IO.File.AppendAllText(path, survey + Environment.NewLine);
 
             return RedirectToPage("./Index");
+
+           
         }
     }
 }

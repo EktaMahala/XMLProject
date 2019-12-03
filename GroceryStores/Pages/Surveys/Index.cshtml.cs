@@ -6,23 +6,40 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using GroceryStores.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace GroceryStores.Pages.Surveys
 {
     public class IndexModel : PageModel
     {
-        private readonly GroceryStores.Models.GroceryStoresContext _context;
+        private readonly IHostingEnvironment _environment;
 
-        public IndexModel(GroceryStores.Models.GroceryStoresContext context)
+        public IndexModel(IHostingEnvironment environment)
         {
-            _context = context;
+            _environment = environment;
         }
 
-        public IList<GroceryStoreSurvey> GroceryStoreSurvey { get;set; }
+        public IList<GroceryStoreSurvey> GroceryStoreSurveys = new List<GroceryStoreSurvey>();
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            GroceryStoreSurvey = await _context.GroceryStoreSurvey.ToListAsync();
+            string line;
+            string path = Path.Combine(_environment.ContentRootPath, "Surveys.txt");
+            StreamReader file = new System.IO.StreamReader(path);
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] data = line.Split(',');
+                GroceryStoreSurvey survey = new GroceryStoreSurvey();
+                survey.firstName = data[0];
+                survey.lastName = data[1];
+                survey.mobile = data[2];
+                survey.email = data[3];
+                survey.zip = data[4];
+                survey.stores = data[5];
+                GroceryStoreSurveys.Add(survey);
+            }
+            file.Close();
         }
     }
 }

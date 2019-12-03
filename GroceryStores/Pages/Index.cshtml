@@ -3,40 +3,24 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-   
+
 }
 
-
 <div class="text-center">
-    <h1 class="display-4" text>Grocery Stores List</h1>
-
-    <table class="table table-border table-dark table-striped table-hover auto-index">
-        <thead class="table-dark">
-            <tr>
-
-                <th>License Id</th>
-                <th>License Description</th>
-                <th>Business Activity</th>
-                <th>Legal Name</th>
-                <th>License Status</th>
-                <th>Zipcode</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                foreach (BusinessOwnerDetails.BusinessOwner buss in businessOwners)
-                {
-                    <tr>
-                        <td>@buss.LicenseId</td>
-                        <td>@buss.LicenseDescription</td>
-                        <td>@buss.BusinessActivity</td>
-                        <td>@buss.LegalName</td>
-                        <td>@buss.LicenseStatus</td>
-                        <td>@buss.ZipCode</td>
-
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
+    <h1 style="text-align:center;font-family: Arial;">Chicago Grocery Store Owners</h1>
+    <br />
+    <img src="~/css/store.jpg" height="250" width="600" />
+    <br />
+    <br />
+    <p align="justify">
+        From a Korean market to a local foods emporium to a Mexican produce shop, Chicago is a home to a variety of grocery stores. There are 262 grocery stores in Chicago and close-in suburbs, the lowest number since 2009, according to an urban grocery report by retail brokerage Mid-America Real Estate Group.
+    </p>
+    <p align="justify">
+        Use this webpage to search grocery stores in Chicago. The application Contains a list of grocery stores which was used by the city to calculate the estimates of Chicagoans living in food deserts. Data in this file can be cross-referenced with the city's business license data
+    </p>
+    <p align="justify">
+       
+        <a target="_blank" href="https://grocerystores.azurewebsites.net/api/BusinessOwnerAPIServices"><strong>API Link: </strong> https://grocerystores.azurewebsites.net/api/BusinessOwnerAPIServices</a>
+    </p>
 </div>
+

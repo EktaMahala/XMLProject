@@ -8,6 +8,7 @@ namespace GroceryStores.Models
 {
     public class BusinessOwnerAPIService
     {
+        
         [JsonProperty("license_id")]
         [JsonConverter(typeof(ParseStringConverter))]
         public long LicenseId { get; set; }
